@@ -37,8 +37,12 @@ def item_update(id):
   instance = EmailSignup.query.filter_by(id=id).first_or_404()
   form = LandingForm(obj=instance)
   if form.validate_on_submit():
-    data = form.data
-    print(data)
+    full_name = form.full_name.data
+    email = form.email.data
+    instance.full_name=full_name
+    instance.email=email
+    instance.save()
+    return redirect("/item/{}".format(instance.id))
   return render_template('items/form.html', instance=instance, form=form)
   
   
