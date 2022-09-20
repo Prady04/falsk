@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="col-10 mx-auto">
+    <h1>Delete Instance #{{ instance.id }}</h1>
+    <form action="" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button class="btn btn-primary my-3" type="submit">Yes, Delete</button>  
+    </form>
+  </div>
+{% endblock content %}
+  

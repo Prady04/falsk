@@ -44,5 +44,17 @@ def item_update(id):
     instance.save()
     return redirect("/item/{}".format(instance.id))
   return render_template('items/form.html', instance=instance, form=form)
+
+@app.route("/item/<int:id>/delete/", methods=["GET", "POST"])
+def item_delete(id):
+  instance = EmailSignup.query.filter_by(id=id).first_or_404()
+  
+  if request.method =="POST":
+    instance.delete()
+    return redirect("/")
+  return render_template("items/delete.html", instance=instance)
+  
+
+
   
   
