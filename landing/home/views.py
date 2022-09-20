@@ -24,6 +24,12 @@ def home():
   
   return render_template('home.html', form=form)
 
+@app.route("/items", methods=["GET"])
+def item_list():
+  object_list = EmailSignup.query.all()
+  return render_template("items/list.html", object_list = object_list)
+
+
 @app.route("/item/<int:id>", methods=["GET", "POST"])
 def item_detail(id):
   if request.method == "GET":
