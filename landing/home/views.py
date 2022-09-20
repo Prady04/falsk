@@ -31,4 +31,14 @@ def item_detail(id):
     return render_template("items/detail.html", instance=instance)    
   else :
     return render_template("home.html", form=form)
+
+@app.route("/item/<int:id>/update/", methods=['GET', 'POST'])  
+def item_update(id):
+  instance = EmailSignup.query.filter_by(id=id).first_or_404()
+  form = LandingForm(obj=instance)
+  if form.validate_on_submit():
+    data = form.data
+    print(data)
+  return render_template('items/form.html', instance=instance, form=form)
+  
   
