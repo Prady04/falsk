@@ -1,2 +1,4 @@
 venv/*
 *.pyc
+style.css
+zerodha.html
