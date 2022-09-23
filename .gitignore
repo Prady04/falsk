@@ -2,3 +2,5 @@ venv/*
 *.pyc
 style.css
 zerodha.html
+landing/index.html
+landing/static/cover.css
