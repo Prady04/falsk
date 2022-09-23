@@ -1,0 +1,1 @@
+web: gunicorn app:wsgi --workers 3 -t 60
